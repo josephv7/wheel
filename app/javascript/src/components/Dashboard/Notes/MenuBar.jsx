@@ -12,11 +12,6 @@ const MenuBar = ({ showMenu }) => (
       <NeetoUIMenuBar.Block key={idx} label={type.label} count={type.count} />
     ))}
 
-    <NeetoUIMenuBar.Block label={"All"} count={10} />
-    <NeetoUIMenuBar.Block label={"Users"} count={15} />
-    <NeetoUIMenuBar.Block label={"Leads"} count={25} />
-    <NeetoUIMenuBar.Block label={"Visitors"} count={30} />
-
     <NeetoUIMenuBar.SubTitle
       iconProps={[
         {
