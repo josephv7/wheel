@@ -19,7 +19,6 @@ const Notes = () => {
   const [isNewNotePaneOpen, setIsNewNotePaneOpen] = useState(false);
   const [isDeleteAlertOpen, setIsDeleteAlertOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedNoteIds, setSelectedNoteIds] = useState([]);
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
@@ -74,6 +73,7 @@ const Notes = () => {
                   title={note.title}
                   description={note.description}
                   key={note.id}
+                  setIsDeleteAlertOpen={setIsDeleteAlertOpen}
                 />
               ))}
             </div>
@@ -93,10 +93,8 @@ const Notes = () => {
           />
           {isDeleteAlertOpen && (
             <DeleteAlert
-              selectedNoteIds={selectedNoteIds}
               onClose={() => setIsDeleteAlertOpen(false)}
-              refetch={fetchNotes}
-              setSelectedNoteIds={setSelectedNoteIds}
+              setIsDeleteAlertOpen={setIsDeleteAlertOpen}
             />
           )}
         </Container>
