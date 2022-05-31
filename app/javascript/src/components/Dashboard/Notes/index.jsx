@@ -98,8 +98,8 @@ const Notes = () => {
       </MenuBar>
       <div
         className={classnames({
-          "nc-table-wrapper": isMenuBarOpen,
-          "nc-table-wrapper-full": !isMenuBarOpen,
+          "nc-list-wrapper": isMenuBarOpen,
+          "nc-list-wrapper-full": !isMenuBarOpen,
         })}
       >
         <Container>
