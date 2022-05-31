@@ -19,9 +19,7 @@ const Card = ({ title, description, setIsDeleteAlertOpen }) => (
       </div>
       <Typography style="body2">{description}</Typography>
     </div>
-
     <div className="border border-t border-gray-100" />
-
     <div className="flex justify-between">
       <Tag label="Getting Started" />
       <div className="flex flex-row items-center space-x-1">
