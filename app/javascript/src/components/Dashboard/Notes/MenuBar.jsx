@@ -4,13 +4,18 @@ import { Search, Plus, Settings } from "neetoicons";
 import { Typography } from "neetoui";
 import { MenuBar as NeetoUIMenuBar } from "neetoui/layouts";
 
-import { TAGS } from "./constants";
+import { TAGS, TYPES, SEGMENTS } from "./constants";
 
 const MenuBar = ({ showMenu }) => (
   <NeetoUIMenuBar showMenu={showMenu} title="Notes">
-    {TAGS.map((tag, idx) => (
-      <NeetoUIMenuBar.Block key={idx} label={tag} />
+    {TYPES.map((type, idx) => (
+      <NeetoUIMenuBar.Block key={idx} label={type.label} count={type.count} />
     ))}
+
+    <NeetoUIMenuBar.Block label={"All"} count={10} />
+    <NeetoUIMenuBar.Block label={"Users"} count={15} />
+    <NeetoUIMenuBar.Block label={"Leads"} count={25} />
+    <NeetoUIMenuBar.Block label={"Visitors"} count={30} />
 
     <NeetoUIMenuBar.SubTitle
       iconProps={[
@@ -28,9 +33,13 @@ const MenuBar = ({ showMenu }) => (
         Segments
       </Typography>
     </NeetoUIMenuBar.SubTitle>
-    <NeetoUIMenuBar.Block label="Europe" count={80} />
-    <NeetoUIMenuBar.Block label="Middle-East" count={60} />
-    <NeetoUIMenuBar.Block label="Asia" count={60} />
+    {SEGMENTS.map((segment, idx) => (
+      <NeetoUIMenuBar.Block
+        key={idx}
+        label={segment.label}
+        count={segment.count}
+      />
+    ))}
 
     <NeetoUIMenuBar.SubTitle
       iconProps={[
@@ -54,9 +63,9 @@ const MenuBar = ({ showMenu }) => (
         Tags
       </Typography>
     </NeetoUIMenuBar.SubTitle>
-    <NeetoUIMenuBar.Block label="Sales" count={80} />
-    <NeetoUIMenuBar.Block label="Finance" count={60} />
-    <NeetoUIMenuBar.Block label="User Experienc" count={60} />
+    {TAGS.map((tag, idx) => (
+      <NeetoUIMenuBar.Block key={idx} label={tag.label} count={tag.count} />
+    ))}
   </NeetoUIMenuBar>
 );
 
