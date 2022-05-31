@@ -11,7 +11,6 @@ const MenuBar = ({ showMenu }) => (
     {TYPES.map((type, idx) => (
       <NeetoUIMenuBar.Block key={idx} label={type.label} count={type.count} />
     ))}
-
     <NeetoUIMenuBar.SubTitle
       iconProps={[
         {
@@ -35,7 +34,6 @@ const MenuBar = ({ showMenu }) => (
         count={segment.count}
       />
     ))}
-
     <NeetoUIMenuBar.SubTitle
       iconProps={[
         {
