@@ -1,0 +1,7 @@
+.nc-list-wrapper{
+  width: calc(100vw - $neeto-ui-sidebar-width - $neeto-ui-menubar-width);
+}
+
+.nc-list-wrapper-full{
+  width: calc(100vw - $neeto-ui-sidebar-width);
+}
