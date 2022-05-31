@@ -7,7 +7,7 @@ const Card = ({ title, description }) => (
   <div className="w-full space-y-3 rounded-md border border-gray-200 p-4">
     <div>
       <div className="flex justify-between">
-        <h4 className="text-left font-bold">{title} </h4>
+        <Typography style="h4">{title}</Typography>
         <MenuVertical size={20} />
       </div>
       <Typography style="body2">{description}</Typography>
