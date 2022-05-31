@@ -2,16 +2,15 @@ import React, { useState, useEffect } from "react";
 
 import classnames from "classnames";
 import EmptyNotesListImage from "images/EmptyNotesList";
-import { Search, Plus, Settings } from "neetoicons";
-import { Button, PageLoader, Typography } from "neetoui";
-import { Container, Header, MenuBar } from "neetoui/layouts";
+import { Button, PageLoader } from "neetoui";
+import { Container, Header } from "neetoui/layouts";
 
 import notesApi from "apis/notes";
 import EmptyState from "components/Common/EmptyState";
 
 import Card from "./Card";
-import { TAGS } from "./constants";
 import DeleteAlert from "./DeleteAlert";
+import MenuBar from "./MenuBar";
 import NewNotePane from "./Pane/Create";
 
 const Notes = () => {
@@ -45,57 +44,7 @@ const Notes = () => {
 
   return (
     <div className="flex">
-      <MenuBar showMenu={isMenuBarOpen} title="Notes">
-        {TAGS.map((tag, idx) => (
-          <MenuBar.Block key={idx} label={tag} />
-        ))}
-
-        <MenuBar.SubTitle
-          iconProps={[
-            {
-              icon: Search,
-            },
-          ]}
-        >
-          <Typography
-            component="h4"
-            style="h5"
-            textTransform="uppercase"
-            weight="bold"
-          >
-            Segments
-          </Typography>
-        </MenuBar.SubTitle>
-        <MenuBar.Block label="Europe" count={80} />
-        <MenuBar.Block label="Middle-East" count={60} />
-        <MenuBar.Block label="Asia" count={60} />
-
-        <MenuBar.SubTitle
-          iconProps={[
-            {
-              icon: Search,
-            },
-            {
-              icon: Plus,
-            },
-            {
-              icon: Settings,
-            },
-          ]}
-        >
-          <Typography
-            component="h4"
-            style="h5"
-            textTransform="uppercase"
-            weight="bold"
-          >
-            Tags
-          </Typography>
-        </MenuBar.SubTitle>
-        <MenuBar.Block label="Sales" count={80} />
-        <MenuBar.Block label="Finance" count={60} />
-        <MenuBar.Block label="User Experienc" count={60} />
-      </MenuBar>
+      <MenuBar showMenu={isMenuBarOpen} />
       <div
         className={classnames({
           "nc-list-wrapper": isMenuBarOpen,
