@@ -1,7 +1,7 @@
 import React from "react";
 
 import { MenuVertical, Clock } from "neetoicons";
-import { Typography, Tag, Avatar } from "neetoui";
+import { Typography, Tag, Avatar, Tooltip } from "neetoui";
 
 const Card = ({ title, description }) => (
   <div className="w-full space-y-3 rounded-md border border-gray-200 p-4">
@@ -19,7 +19,13 @@ const Card = ({ title, description }) => (
       <Tag label="Getting Started" />
       <div className="flex flex-row items-center space-x-1">
         <Clock size={15} />
-        <Typography style="body3">Drafted 2 hours ago</Typography>
+        <Tooltip
+          position="bottom"
+          content="Wednesday, 10:30AM"
+          hideAfter={3000}
+        >
+          <Typography style="body3">Drafted 2 hours ago</Typography>
+        </Tooltip>
         <Avatar
           size="small"
           user={{
