@@ -3,7 +3,7 @@ import React from "react";
 import { MenuVertical, Clock } from "neetoicons";
 import { Typography, Tag, Avatar, Tooltip, Dropdown } from "neetoui";
 
-const Card = ({ title, description }) => (
+const Card = ({ title, description, setIsDeleteAlertOpen }) => (
   <div className="w-full space-y-3 rounded-md border border-gray-200 p-4">
     <div>
       <div className="flex justify-between">
@@ -14,7 +14,7 @@ const Card = ({ title, description }) => (
           position="bottom-end"
         >
           <li>Edit</li>
-          <li>Delete</li>
+          <li onClick={() => setIsDeleteAlertOpen(true)}>Delete</li>
         </Dropdown>
       </div>
       <Typography style="body2">{description}</Typography>
