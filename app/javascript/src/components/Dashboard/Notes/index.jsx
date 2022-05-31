@@ -16,8 +16,8 @@ import NewNotePane from "./Pane/Create";
 const Notes = () => {
   const [loading, setLoading] = useState(true);
   const [isMenuBarOpen, setIsMenuBarOpen] = useState(true);
-  const [showNewNotePane, setShowNewNotePane] = useState(false);
-  const [showDeleteAlert, setShowDeleteAlert] = useState(false);
+  const [isNewNotePaneOpen, setIsNewNotePaneOpen] = useState(false);
+  const [isDeleteAlertOpen, setIsDeleteAlertOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedNoteIds, setSelectedNoteIds] = useState([]);
   const [notes, setNotes] = useState([]);
@@ -56,7 +56,7 @@ const Notes = () => {
             title="Notes"
             actionBlock={
               <Button
-                onClick={() => setShowNewNotePane(true)}
+                onClick={() => setIsNewNotePaneOpen(true)}
                 label="Add New Note"
                 icon="ri-add-line"
               />
@@ -82,19 +82,19 @@ const Notes = () => {
               image={EmptyNotesListImage}
               title="Looks like you don't have any notes!"
               subtitle="Add your notes to send customized emails to them."
-              primaryAction={() => setShowNewNotePane(true)}
+              primaryAction={() => setIsNewNotePaneOpen(true)}
               primaryActionLabel="Add New Note"
             />
           )}
           <NewNotePane
-            showPane={showNewNotePane}
-            setShowPane={setShowNewNotePane}
+            showPane={isNewNotePaneOpen}
+            setShowPane={setIsNewNotePaneOpen}
             fetchNotes={fetchNotes}
           />
-          {showDeleteAlert && (
+          {isDeleteAlertOpen && (
             <DeleteAlert
               selectedNoteIds={selectedNoteIds}
-              onClose={() => setShowDeleteAlert(false)}
+              onClose={() => setIsDeleteAlertOpen(false)}
               refetch={fetchNotes}
               setSelectedNoteIds={setSelectedNoteIds}
             />
