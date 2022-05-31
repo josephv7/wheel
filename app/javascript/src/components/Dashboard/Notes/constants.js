@@ -24,3 +24,12 @@ export const NOTES_TABLE_COLUMN_DATA = [
     width: "70%",
   },
 ];
+
+export const TAGS = [
+  "Getting Started",
+  "Onboarding",
+  "User Flow",
+  "UX",
+  "Bugs",
+  "v2",
+];
