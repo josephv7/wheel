@@ -2,17 +2,17 @@ import React, { useState, useEffect } from "react";
 
 import classnames from "classnames";
 import EmptyNotesListImage from "images/EmptyNotesList";
-import { Delete } from "neetoicons";
-import { Button, PageLoader } from "neetoui";
-import { Container, Header, SubHeader, MenuBar } from "neetoui/layouts";
+import { Search, Plus, Settings } from "neetoicons";
+import { Button, PageLoader, Typography } from "neetoui";
+import { Container, Header, MenuBar } from "neetoui/layouts";
 
 import notesApi from "apis/notes";
 import EmptyState from "components/Common/EmptyState";
 
+import Card from "./Card";
 import { TAGS } from "./constants";
 import DeleteAlert from "./DeleteAlert";
 import NewNotePane from "./Pane/Create";
-import Table from "./Table";
 
 const Notes = () => {
   const [loading, setLoading] = useState(true);
@@ -49,10 +49,57 @@ const Notes = () => {
         {TAGS.map((tag, idx) => (
           <MenuBar.Block key={idx} label={tag} />
         ))}
+
+        <MenuBar.SubTitle
+          iconProps={[
+            {
+              icon: Search,
+            },
+          ]}
+        >
+          <Typography
+            component="h4"
+            style="h5"
+            textTransform="uppercase"
+            weight="bold"
+          >
+            Segments
+          </Typography>
+        </MenuBar.SubTitle>
+        <MenuBar.Block label="Europe" count={80} />
+        <MenuBar.Block label="Middle-East" count={60} />
+        <MenuBar.Block label="Asia" count={60} />
+
+        <MenuBar.SubTitle
+          iconProps={[
+            {
+              icon: Search,
+            },
+            {
+              icon: Plus,
+            },
+            {
+              icon: Settings,
+            },
+          ]}
+        >
+          <Typography
+            component="h4"
+            style="h5"
+            textTransform="uppercase"
+            weight="bold"
+          >
+            Tags
+          </Typography>
+        </MenuBar.SubTitle>
+        <MenuBar.Block label="Sales" count={80} />
+        <MenuBar.Block label="Finance" count={60} />
+        <MenuBar.Block label="User Experienc" count={60} />
       </MenuBar>
       <div
         className={classnames({
           "nc-table-wrapper": isMenuBarOpen,
+          "nc-table-wrapper-full": !isMenuBarOpen,
         })}
       >
         <Container>
@@ -72,23 +119,15 @@ const Notes = () => {
             menuBarToggle={() => setIsMenuBarOpen(!isMenuBarOpen)}
           />
           {notes.length ? (
-            <>
-              <SubHeader
-                rightActionBlock={
-                  <Button
-                    label="Delete"
-                    icon={Delete}
-                    onClick={() => setShowDeleteAlert(true)}
-                    disabled={!selectedNoteIds.length}
-                  />
-                }
-              />
-              <Table
-                setSelectedNoteIds={setSelectedNoteIds}
-                notes={notes}
-                fetchNotes={fetchNotes}
-              />
-            </>
+            <div className="w-full space-y-4">
+              {notes.map(note => (
+                <Card
+                  title={note.title}
+                  description={note.description}
+                  key={note.id}
+                />
+              ))}
+            </div>
           ) : (
             <EmptyState
               image={EmptyNotesListImage}

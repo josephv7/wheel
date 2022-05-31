@@ -1,3 +1,7 @@
 .nc-table-wrapper{
   width: calc(100vw - $neeto-ui-sidebar-width - $neeto-ui-menubar-width);
 }
+
+.nc-table-wrapper-full{
+  width: calc(100vw - $neeto-ui-sidebar-width);
+}
