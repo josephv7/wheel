@@ -52,8 +52,8 @@ export const TAGS = [
     count: 10,
   },
   {
-    label: "v2",
-    value: "v2",
+    label: "V2",
+    value: "V2",
     count: 10,
   },
 ];
@@ -96,5 +96,18 @@ export const SEGMENTS = [
     label: "Asia",
     value: "asia",
     count: 80,
+  },
+];
+
+export const CONTACTS = [
+  {
+    label: "Oliver Smith",
+    value: "Oliver Smith",
+    email: "oliver@example.com",
+  },
+  {
+    label: "John Doe",
+    value: "John Doe",
+    email: "john@example.com",
   },
 ];
