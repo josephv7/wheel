@@ -5,20 +5,18 @@ import { Typography, Tag, Avatar, Tooltip, Dropdown } from "neetoui";
 
 const Card = ({ title, description, setIsDeleteAlertOpen }) => (
   <div className="w-full space-y-3 rounded-md border border-gray-200 p-4">
-    <div>
-      <div className="flex justify-between">
-        <Typography style="h4">{title}</Typography>
-        <Dropdown
-          buttonStyle="icon"
-          icon={() => <MenuVertical size={20} />}
-          position="bottom-end"
-        >
-          <li>Edit</li>
-          <li onClick={() => setIsDeleteAlertOpen(true)}>Delete</li>
-        </Dropdown>
-      </div>
-      <Typography style="body2">{description}</Typography>
+    <div className="flex justify-between">
+      <Typography style="h4">{title}</Typography>
+      <Dropdown
+        buttonStyle="icon"
+        icon={() => <MenuVertical size={20} />}
+        position="bottom-end"
+      >
+        <li>Edit</li>
+        <li onClick={() => setIsDeleteAlertOpen(true)}>Delete</li>
+      </Dropdown>
     </div>
+    <Typography style="body2">{description}</Typography>
     <div className="border border-t border-gray-100" />
     <div className="flex justify-between">
       <Tag label="Getting Started" />

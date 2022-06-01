@@ -64,7 +64,9 @@ const Notes = () => {
               value: searchTerm,
               onChange: e => setSearchTerm(e.target.value),
             }}
-            menuBarToggle={() => setIsMenuBarOpen(!isMenuBarOpen)}
+            menuBarToggle={() =>
+              setIsMenuBarOpen(isMenuBarOpen => !isMenuBarOpen)
+            }
           />
           {notes.length ? (
             <div className="w-full space-y-4">
