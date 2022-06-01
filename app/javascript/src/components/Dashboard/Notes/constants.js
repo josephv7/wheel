@@ -1,15 +1,5 @@
 import * as yup from "yup";
 
-export const NOTES_FORM_INITIAL_FORM_VALUES = {
-  title: "",
-  description: "",
-};
-
-export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
-  title: yup.string().required("Title is required"),
-  description: yup.string().required("Description is required"),
-});
-
 export const NOTES_TABLE_COLUMN_DATA = [
   {
     title: "Title",
@@ -111,3 +101,31 @@ export const CONTACTS = [
     email: "john@example.com",
   },
 ];
+
+export const NOTES_FORM_INITIAL_FORM_VALUES = {
+  title: "",
+  description: "",
+  tags: [],
+  assignedContact: CONTACTS[0],
+};
+
+export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
+  title: yup.string().required("Title is required"),
+  description: yup.string().required("Description is required"),
+  assignedContact: yup
+    .object()
+    .shape({
+      label: yup.string().required("Label requied for Assigned Contact"),
+      value: yup.string().required("Value required for Assigned Contact"),
+    })
+    .required("Assigned Contact is required"),
+  tags: yup
+    .array()
+    .of(
+      yup.object().shape({
+        label: yup.string().required("Label requied for Tag"),
+        value: yup.string().required("Value required for Tag"),
+      })
+    )
+    .min(1, "At least one tag is required"),
+});
