@@ -11,7 +11,7 @@ export default function NoteForm({ onClose, note, isEdit }) {
 
   const handleSubmit = () => {
     onClose();
-    Toastr.success("Note creation");
+    Toastr.success("Note added successfully");
   };
 
   return (
