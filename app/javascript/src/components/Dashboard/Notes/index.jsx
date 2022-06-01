@@ -9,9 +9,9 @@ import notesApi from "apis/notes";
 import EmptyState from "components/Common/EmptyState";
 
 import Card from "./Card";
+import NewNotePane from "./Create";
 import DeleteAlert from "./DeleteAlert";
 import MenuBar from "./MenuBar";
-import NewNotePane from "./Pane/Create";
 
 const Notes = () => {
   const [loading, setLoading] = useState(true);
@@ -89,7 +89,6 @@ const Notes = () => {
           <NewNotePane
             showPane={isNewNotePaneOpen}
             setShowPane={setIsNewNotePaneOpen}
-            fetchNotes={fetchNotes}
           />
           {isDeleteAlertOpen && (
             <DeleteAlert

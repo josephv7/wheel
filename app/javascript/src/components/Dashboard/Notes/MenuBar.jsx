@@ -8,8 +8,8 @@ import { TAGS, TYPES, SEGMENTS } from "./constants";
 
 const MenuBar = ({ showMenu }) => (
   <NeetoUIMenuBar showMenu={showMenu} title="Notes">
-    {TYPES.map((type, idx) => (
-      <NeetoUIMenuBar.Block key={idx} label={type.label} count={type.count} />
+    {TYPES.map(({ id, label, count }) => (
+      <NeetoUIMenuBar.Block key={id} label={label} count={count} />
     ))}
     <NeetoUIMenuBar.SubTitle
       iconProps={[
@@ -27,12 +27,8 @@ const MenuBar = ({ showMenu }) => (
         Segments
       </Typography>
     </NeetoUIMenuBar.SubTitle>
-    {SEGMENTS.map((segment, idx) => (
-      <NeetoUIMenuBar.Block
-        key={idx}
-        label={segment.label}
-        count={segment.count}
-      />
+    {SEGMENTS.map(({ id, label, count }) => (
+      <NeetoUIMenuBar.Block key={id} label={label} count={count} />
     ))}
     <NeetoUIMenuBar.SubTitle
       iconProps={[
@@ -56,8 +52,8 @@ const MenuBar = ({ showMenu }) => (
         Tags
       </Typography>
     </NeetoUIMenuBar.SubTitle>
-    {TAGS.map((tag, idx) => (
-      <NeetoUIMenuBar.Block key={idx} label={tag.label} count={tag.count} />
+    {TAGS.map(({ id, label, count }) => (
+      <NeetoUIMenuBar.Block key={id} label={label} count={count} />
     ))}
   </NeetoUIMenuBar>
 );

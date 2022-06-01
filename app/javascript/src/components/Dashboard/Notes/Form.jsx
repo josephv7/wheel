@@ -1,28 +1,17 @@
 import React, { useState } from "react";
 
 import { Formik, Form } from "formik";
-import { Button, Pane } from "neetoui";
-import { Input, Textarea } from "neetoui/formik";
+import { Button, Pane, Toastr } from "neetoui";
+import { Input, Textarea, Select as FormikSelect } from "neetoui/formik";
 
-import notesApi from "apis/notes";
+import { NOTES_FORM_VALIDATION_SCHEMA, CONTACTS, TAGS } from "./constants";
 
-import { NOTES_FORM_VALIDATION_SCHEMA } from "../constants";
-
-export default function NoteForm({ onClose, refetch, note, isEdit }) {
+export default function NoteForm({ onClose, note, isEdit }) {
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = async values => {
-    try {
-      if (isEdit) {
-        await notesApi.update(note.id, values);
-      } else {
-        await notesApi.create(values);
-      }
-      refetch();
-      onClose();
-    } catch (err) {
-      logger.error(err);
-    }
+  const handleSubmit = () => {
+    onClose();
+    Toastr.success("Note added successfully");
   };
 
   return (
@@ -37,17 +26,35 @@ export default function NoteForm({ onClose, refetch, note, isEdit }) {
         <Form className="w-full">
           <Pane.Body className="space-y-6">
             <Input
+              required
               label="Title"
               name="title"
+              placeholder="Enter note title"
               className="w-full flex-grow-0"
-              required
             />
             <Textarea
+              required
               label="Description"
               name="description"
+              placeholder="Enter note description"
               className="w-full flex-grow-0"
-              rows={8}
+            />
+            <FormikSelect
               required
+              label="Assigned Contact"
+              name="assignedContact"
+              placeholder="Select Role"
+              className="w-full flex-grow-0"
+              options={CONTACTS}
+            />
+            <FormikSelect
+              isMulti
+              required
+              label="Tags"
+              name="tags"
+              placeholder="Select Tags"
+              className="w-full flex-grow-0"
+              options={TAGS}
             />
           </Pane.Body>
           <Pane.Footer>
