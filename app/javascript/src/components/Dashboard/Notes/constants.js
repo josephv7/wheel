@@ -17,103 +17,103 @@ export const NOTES_TABLE_COLUMN_DATA = [
 
 export const TAGS = [
   {
+    id: 1,
     label: "Getting Started",
     value: "getting_started",
     count: 80,
-    id: 1,
   },
   {
+    id: 2,
     label: "Onboarding",
     value: "onboarding",
     count: 20,
-    id: 2,
   },
   {
+    id: 3,
     label: "User Flow",
     value: "user_flow",
     count: 10,
-    id: 3,
   },
   {
+    id: 4,
     label: "UX",
     value: "ux",
     count: 10,
-    id: 4,
   },
   {
+    id: 5,
     label: "Bugs",
     value: "bugs",
     count: 10,
-    id: 5,
   },
   {
+    id: 6,
     label: "V2",
     value: "V2",
     count: 10,
-    id: 6,
   },
 ];
 
 export const TYPES = [
   {
+    id: 1,
     label: "All",
     value: "all",
     count: 90,
-    id: 1,
   },
   {
+    id: 2,
     label: "Users",
     value: "users",
     count: 80,
-    id: 2,
   },
   {
+    id: 3,
     label: "Leads",
     value: "leads",
     count: 20,
-    id: 3,
   },
   {
+    id: 4,
     label: "Visitors",
     value: "visitors",
     count: 10,
-    id: 4,
   },
 ];
 
 export const SEGMENTS = [
   {
+    id: 1,
     label: "Europe",
     value: "europe",
     count: 90,
-    id: 1,
   },
   {
+    id: 2,
     label: "Middle-East",
     value: "middle_east",
     count: 20,
-    id: 2,
   },
   {
+    id: 3,
     label: "Asia",
     value: "asia",
     count: 80,
-    id: 3,
   },
 ];
 
 export const CONTACTS = [
   {
+    id: 1,
     label: "Oliver Smith",
     value: "Oliver Smith",
     email: "oliver@example.com",
-    id: 1,
   },
   {
+    id: 2,
     label: "John Doe",
     value: "John Doe",
     email: "john@example.com",
-    id: 2,
   },
 ];
 
