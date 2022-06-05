@@ -1,3 +1,5 @@
+import * as yup from "yup";
+
 export const TAGS = [];
 export const DEFAULT_PAGE_INDEX = 1;
 export const DEFAULT_PAGE_SIZE = 10;
@@ -46,21 +48,35 @@ export const CONTACTS = [
   },
 ];
 
-// export const CONTACTS_TABLE_COLUMN_DATA = [
-//   {
-//     title: "Name",
-//     dataIndex: "name",
-//     key: "name",
-//   },
-//   {
-//     title: "Email",
-//     dataIndex: "email",
-//     key: "email",
-//   },
-//   {
-//     title: "Created At",
-//     dataIndex: "createdAt",
-//     key: "createdAt",
-//   },
+export const ROLES = [
+  {
+    id: 1,
+    label: "Standard",
+    value: "standard",
+  },
+  {
+    id: 2,
+    label: "Admin",
+    value: "admin",
+  },
+];
 
-// ];
+export const CONTACTS_FORM_INITIAL_FORM_VALUES = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  role: ROLES[0],
+};
+
+export const CONTACTS_FORM_VALIDATION_SCHEMA = yup.object().shape({
+  firstName: yup.string().required("First name is required"),
+  lastName: yup.string().required("Last name is required"),
+  email: yup.string().email().required("Email is required"),
+  role: yup
+    .object()
+    .shape({
+      label: yup.string().required("Label requied for Role"),
+      value: yup.string().required("Value required for Role"),
+    })
+    .required("Role is required"),
+});

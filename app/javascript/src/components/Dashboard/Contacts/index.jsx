@@ -4,6 +4,7 @@ import classnames from "classnames";
 import { Button } from "neetoui";
 import { Container, Header } from "neetoui/layouts";
 
+import NewContactPane from "./Create";
 import DeleteAlert from "./DeleteAlert";
 import MenuBar from "./MenuBar";
 import Table from "./Table";
@@ -14,6 +15,7 @@ const Contacts = () => {
   const [searchTerm, setSearchTerm] = useState("");
   // const [selectedContactIds, setSelectedContactIds] = useState([]);
   const [isDeleteAlertOpen, setIsDeleteAlertOpen] = useState(false);
+  const [isNewContactPaneOpen, setIsNewContactPaneOpen] = useState(false);
 
   return (
     <div className="flex">
@@ -27,7 +29,13 @@ const Contacts = () => {
         <Container>
           <Header
             title="Contacts"
-            actionBlock={<Button label="Add New Contact" icon="ri-add-line" />}
+            actionBlock={
+              <Button
+                label="Add New Contact"
+                icon="ri-add-line"
+                onClick={() => setIsNewContactPaneOpen(true)}
+              />
+            }
             searchProps={{
               value: searchTerm,
               onChange: e => setSearchTerm(e.target.value),
@@ -39,6 +47,10 @@ const Contacts = () => {
           <Table
             // setSelectedContactIds={setSelectedContactIds}
             setIsDeleteAlertOpen={setIsDeleteAlertOpen}
+          />
+          <NewContactPane
+            showPane={isNewContactPaneOpen}
+            setShowPane={setIsNewContactPaneOpen}
           />
           {isDeleteAlertOpen && (
             <DeleteAlert
