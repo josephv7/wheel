@@ -14,10 +14,8 @@ import MenuBar from "./MenuBar";
 import Table from "./Table";
 
 const Contacts = () => {
-  // const [loading, setLoading] = useState(true);
   const [isMenuBarOpen, setIsMenuBarOpen] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
-  // const [selectedContactIds, setSelectedContactIds] = useState([]);
   const [isDeleteAlertOpen, setIsDeleteAlertOpen] = useState(false);
   const [isNewContactPaneOpen, setIsNewContactPaneOpen] = useState(false);
 
@@ -50,7 +48,6 @@ const Contacts = () => {
           />
           {CONTACTS.length ? (
             <Table
-              // setSelectedContactIds={setSelectedContactIds}
               setIsDeleteAlertOpen={setIsDeleteAlertOpen}
               contacts={CONTACTS}
             />
@@ -63,7 +60,6 @@ const Contacts = () => {
               primaryActionLabel="Add New Contact"
             />
           )}
-
           <NewContactPane
             showPane={isNewContactPaneOpen}
             setShowPane={setIsNewContactPaneOpen}

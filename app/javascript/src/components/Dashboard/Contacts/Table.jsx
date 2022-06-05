@@ -6,11 +6,7 @@ import { Table as NeetoUITable, Dropdown } from "neetoui";
 import { DEFAULT_PAGE_INDEX, DEFAULT_PAGE_SIZE, CONTACTS } from "./constants";
 import { renderColumnData } from "./utils";
 
-const Table = ({
-  // setSelectedContactIds,
-  setIsDeleteAlertOpen,
-  contacts = [],
-}) => {
+const Table = ({ setIsDeleteAlertOpen, contacts = [] }) => {
   const [pageNo, setPageNo] = useState(DEFAULT_PAGE_INDEX);
 
   const columnData = renderColumnData();
