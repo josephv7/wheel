@@ -54,6 +54,7 @@ const Table = ({
       //   selectedRowKeys={map(({ id }) => id, selectedViews)}
 
       allowRowClick={true}
+      pagination={true}
     />
   );
 };
