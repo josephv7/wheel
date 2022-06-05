@@ -43,16 +43,6 @@ const Table = ({
       currentPageNumber={pageNo}
       handlePageChange={page => setPageNo(page)}
       totalCount={contacts.length}
-      // onRowSelect={selectedRowKeys => setSelectedContactIds(selectedRowKeys)}
-      // onRowClick={(_, note) => {
-      //   setSelectedContact(note);
-      // }}
-
-      // fixedHeight
-      //   onRowClick={handleRowClick}
-      //   onRowSelect={handleCheckboxClick}
-      //   selectedRowKeys={map(({ id }) => id, selectedViews)}
-
       allowRowClick={true}
       pagination={true}
     />

@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 
 import classnames from "classnames";
+import EmptyNotesListImage from "images/EmptyNotesList";
 import { Button } from "neetoui";
 import { Container, Header } from "neetoui/layouts";
 
+import EmptyState from "components/Common/EmptyState";
+
+import { CONTACTS } from "./constants";
 import NewContactPane from "./Create";
 import DeleteAlert from "./DeleteAlert";
 import MenuBar from "./MenuBar";
@@ -44,10 +48,22 @@ const Contacts = () => {
               setIsMenuBarOpen(isMenuBarOpen => !isMenuBarOpen)
             }
           />
-          <Table
-            // setSelectedContactIds={setSelectedContactIds}
-            setIsDeleteAlertOpen={setIsDeleteAlertOpen}
-          />
+          {CONTACTS.length ? (
+            <Table
+              // setSelectedContactIds={setSelectedContactIds}
+              setIsDeleteAlertOpen={setIsDeleteAlertOpen}
+              contacts={CONTACTS}
+            />
+          ) : (
+            <EmptyState
+              image={EmptyNotesListImage}
+              title="Looks like you don't have any contacts!"
+              subtitle="Add your contacts to send customized emails to them."
+              primaryAction={() => setIsNewContactPaneOpen(true)}
+              primaryActionLabel="Add New Contact"
+            />
+          )}
+
           <NewContactPane
             showPane={isNewContactPaneOpen}
             setShowPane={setIsNewContactPaneOpen}
