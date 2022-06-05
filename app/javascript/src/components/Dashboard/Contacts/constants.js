@@ -1,4 +1,6 @@
 export const TAGS = [];
+export const DEFAULT_PAGE_INDEX = 1;
+export const DEFAULT_PAGE_SIZE = 10;
 
 export const TYPES = [
   {
@@ -32,14 +34,33 @@ export const SEGMENTS = [];
 export const CONTACTS = [
   {
     id: 1,
-    label: "Oliver Smith",
-    value: "Oliver Smith",
+    name: "Oliver Smith",
     email: "oliver@example.com",
+    createdAt: "2019-01-01",
   },
   {
     id: 2,
-    label: "John Doe",
-    value: "John Doe",
+    name: "John Doe",
     email: "john@example.com",
+    createdAt: "2019-01-01",
   },
 ];
+
+// export const CONTACTS_TABLE_COLUMN_DATA = [
+//   {
+//     title: "Name",
+//     dataIndex: "name",
+//     key: "name",
+//   },
+//   {
+//     title: "Email",
+//     dataIndex: "email",
+//     key: "email",
+//   },
+//   {
+//     title: "Created At",
+//     dataIndex: "createdAt",
+//     key: "createdAt",
+//   },
+
+// ];
