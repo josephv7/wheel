@@ -15,6 +15,10 @@ const MenuBar = ({ showMenu }) => (
       iconProps={[
         {
           icon: Search,
+          tooltipProps: {
+            content: "Search",
+            position: "bottom",
+          },
         },
       ]}
     >
@@ -34,12 +38,24 @@ const MenuBar = ({ showMenu }) => (
       iconProps={[
         {
           icon: Search,
+          tooltipProps: {
+            content: "Search",
+            position: "bottom",
+          },
         },
         {
           icon: Plus,
+          tooltipProps: {
+            content: "Add",
+            position: "bottom",
+          },
         },
         {
           icon: Settings,
+          tooltipProps: {
+            content: "Settings",
+            position: "bottom",
+          },
         },
       ]}
     >
