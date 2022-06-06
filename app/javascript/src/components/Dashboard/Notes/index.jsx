@@ -1,45 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import classnames from "classnames";
 import EmptyNotesListImage from "images/EmptyNotesList";
-import { Button, PageLoader } from "neetoui";
+import { Button } from "neetoui";
 import { Container, Header } from "neetoui/layouts";
 
-import notesApi from "apis/notes";
 import EmptyState from "components/Common/EmptyState";
 
 import Card from "./Card";
+import { NOTES } from "./constants";
 import NewNotePane from "./Create";
 import DeleteAlert from "./DeleteAlert";
 import MenuBar from "./MenuBar";
 
 const Notes = () => {
-  const [loading, setLoading] = useState(true);
   const [isMenuBarOpen, setIsMenuBarOpen] = useState(true);
   const [isNewNotePaneOpen, setIsNewNotePaneOpen] = useState(false);
   const [isDeleteAlertOpen, setIsDeleteAlertOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const [notes, setNotes] = useState([]);
-
-  useEffect(() => {
-    fetchNotes();
-  }, []);
-
-  const fetchNotes = async () => {
-    try {
-      setLoading(true);
-      const { data } = await notesApi.fetch();
-      setNotes(data.notes);
-    } catch (error) {
-      logger.error(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  if (loading) {
-    return <PageLoader />;
-  }
 
   return (
     <div className="flex">
@@ -68,9 +46,9 @@ const Notes = () => {
               setIsMenuBarOpen(isMenuBarOpen => !isMenuBarOpen)
             }
           />
-          {notes.length ? (
+          {NOTES.length ? (
             <div className="w-full space-y-4">
-              {notes.map(note => (
+              {NOTES.map(note => (
                 <Card
                   title={note.title}
                   description={note.description}
