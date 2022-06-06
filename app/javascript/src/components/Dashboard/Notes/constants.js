@@ -144,3 +144,22 @@ export const NOTES_FORM_VALIDATION_SCHEMA = yup.object().shape({
     )
     .min(1, "At least one tag is required"),
 });
+
+export const NOTES = [
+  {
+    id: 1,
+    title: "Getting Started",
+    description: "This is a description",
+    tags: [TAGS[0], TAGS[1]],
+    assignedContact: CONTACTS[0],
+    createdAt: "2019-01-01",
+  },
+  {
+    id: 2,
+    title: "Onboarding",
+    description: "This is a description",
+    tags: [TAGS[2]],
+    assignedContact: CONTACTS[1],
+    createdAt: "2019-01-01",
+  },
+];
