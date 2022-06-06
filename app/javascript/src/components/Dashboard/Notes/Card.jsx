@@ -4,7 +4,7 @@ import { MenuVertical, Clock } from "neetoicons";
 import { Typography, Tag, Avatar, Tooltip, Dropdown } from "neetoui";
 
 const Card = ({ title, description, setIsDeleteAlertOpen }) => (
-  <div className="w-full space-y-3 rounded-md border border-gray-200 p-4">
+  <div className="w-full cursor-pointer space-y-3 rounded-md border border-gray-200 p-4 hover:shadow-md">
     <div className="flex justify-between">
       <Typography style="h4">{title}</Typography>
       <Dropdown
